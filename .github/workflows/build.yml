@@ -50,12 +50,6 @@ jobs:
       - name: Install frontend dependencies
         run: npm install
 
-      - name: Check Tauri version compatibility
-        run: |
-          echo "Checking Tauri package versions..."
-          npm list @tauri-apps/plugin-websocket
-          cd src-tauri && cargo tree | grep tauri-plugin-websocket || echo "No tauri-plugin-websocket found in Rust dependencies"
-
       - uses: tauri-apps/tauri-action@v0
         id: tauri-action
         env:
